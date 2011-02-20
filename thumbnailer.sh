@@ -1,6 +1,22 @@
 #!/bin/sh
 #
-# Thumbnailer, Watermarker, HTML generator, uploader.
+# thumbnailer.sh - Thumbnailer, Watermarker, HTML generator, uploader.
+# Copyright (C) 2011 Samuel Bierwagen
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# --------------------------------------------------------------------
 #
 # Takes an image file, renames it to whatever you tell it to, produces two watermarked, resized copies (500 and 1200 pixels wide) and uploads them to a remote site using scp.
 # 
@@ -38,8 +54,8 @@ EXTENSION=${FILE##*.}
 
 echo '<a href="[http://example.com]'$NAME.$EXTENSION'"><img src="[http://example.com/]'$NAME'-thumb.'$EXTENSION'"></a>'
 
-convert -verbose -geometry 1200 -quality 90 -background black -gravity Center -pointsize 9 -fill gray50 -draw "translate 200,-240 text 0,0 '[small watermark text]'" -pointsize 16 -fill White label:'[main watermark text]' -append  "$FILE" "$NAME.$EXTENSION"
+convert "$FILE" -verbose -geometry 1200 -quality 90 -background black -gravity Center -pointsize 9 -fill gray50 -draw "translate 200,-240 text 0,0 '[small watermark text]'" -pointsize 16 -fill White label:'[main watermark text]' -append  "$NAME.$EXTENSION"
 
-convert -verbose -geometry 500 -quality 80 "$FILE" "$NAME"-thumb".$EXTENSION"
+convert "$FILE" -verbose -geometry 500 -quality 80 "$NAME"-thumb".$EXTENSION"
 
 scp $NAME.$EXTENSION $NAME"-thumb".$EXTENSION [user@example.com]
