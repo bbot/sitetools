@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# bar.sh - HTML templating and publishing script.
+# bar.sh - Ultralightweight toy CMS.
 # Copyright (C) 2011 Samuel Bierwagen
 #
 # This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#--------------------------------------------------------------------
+# --------------------------------------------------------------------
 #
 # The first time you run bar.sh, it creates the HTML file, generates the navigation bar, adds the creation time, and adds it to the git repo. (git add then git commit)
 #
@@ -30,7 +30,11 @@
 #
 # Git commit comments can be added with the -m tag.
 #
-# Usage: ./bar.sh -m 'changing DOCTYPEs to HTML 7' foo/
+# Usage: ./bar.sh -m 'changing DOCTYPEs to HTML8' foo/
+#
+# bar.sh outputs valid HTML5, and generates well-formed semantic HTML, which, to a first approximation, nobody at all cares about. But this is my toy CMS, and I'll do what I want.
+#
+# bar.sh does not work out of the box. Everything in ALLCAPS is a site-specific setting, and should be changed by the end-user.
 
 FILE=$1
 
