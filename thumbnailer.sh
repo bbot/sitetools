@@ -54,8 +54,8 @@ EXTENSION=${FILE##*.}
 
 echo '<a href="[http://example.com]'$NAME.$EXTENSION'"><img src="[http://example.com/]'$NAME'-thumb.'$EXTENSION'"></a>'
 
-convert "$FILE" -verbose -geometry 1200 -quality 90 -background black -gravity Center -pointsize 9 -fill gray50 -draw "translate 200,-240 text 0,0 '[small watermark text]'" -pointsize 16 -fill White label:'[main watermark text]' -append  "$NAME.$EXTENSION"
+convert "$FILE" -verbose -geometry 1200 -quality 90 -background black -gravity Center -pointsize 9 -fill gray50 -draw "translate 200,-240 text 0,0 '[small watermark text]'" -pointsize 16 -fill White label:'[main watermark text]' -append -strip  "$NAME.$EXTENSION"
 
-convert "$FILE" -verbose -geometry 500 -quality 80 "$NAME"-thumb".$EXTENSION"
+convert "$FILE" -verbose -geometry 500 -quality 80 -strip "$NAME"-thumb".$EXTENSION"
 
 scp $NAME.$EXTENSION $NAME"-thumb".$EXTENSION [user@example.com]
