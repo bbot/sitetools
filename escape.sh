@@ -3,7 +3,7 @@
 # escape.sh - Escapes angle brackets in text files
 #
 # Turns angle brackets into &lt; and &gt; HTML entities.
-# With -irc, replaces the first 8 columns (the timestamp) with an 
+# With --irc, replaces the first 8 columns (the timestamp) with an 
 # opening angle bracket, using an ugly hack.
 #
 # This is free and unencumbered software released into the public domain.
