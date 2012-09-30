@@ -1,6 +1,7 @@
 #!/bin/sh
 #
 # thumbnailer.sh - Thumbnailer, Watermarker, HTML generator, uploader.
+# Written by Samuel Bierwagen
 #
 # Takes an image file, renames it to whatever you tell it to, produces two watermarked, resized copies (500 and 1200 pixels wide) and uploads them to a remote site using scp.
 # 

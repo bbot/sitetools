@@ -1,6 +1,7 @@
 #!/bin/sh
 #
 # escape.sh - Escapes angle brackets in text files
+# Written by Samuel Bierwagen
 #
 # Turns angle brackets into &lt; and &gt; HTML entities.
 # With --irc, replaces the first 8 columns (the timestamp) with an 
