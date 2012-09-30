@@ -1,22 +1,6 @@
 #!/bin/sh
 #
 # thumbnailer.sh - Thumbnailer, Watermarker, HTML generator, uploader.
-# Copyright (C) 2011 Samuel Bierwagen
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-# --------------------------------------------------------------------
 #
 # Takes an image file, renames it to whatever you tell it to, produces two watermarked, resized copies (500 and 1200 pixels wide) and uploads them to a remote site using scp.
 # 
@@ -28,6 +12,8 @@
 #
 # Arguments are of the form ./thumbnailer.sh SOURCEFILE.extension TARGETNAME
 # It's smart enough to read the extension off the source file, but not so smart as to notice if you put an extension on the target name. Don't put an extension on the target name.
+#
+# This is free and unencumbered software released into the public domain.
 
 FILE=$1
 NAME=$2
