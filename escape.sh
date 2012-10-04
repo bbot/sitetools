@@ -11,9 +11,11 @@
 
 if [[ $* == *--irc* ]]
 then
+    sed -i 's/\&/\&amp;/g' $2
     sed -i 's/>/\&gt;/g' $2
     sed -i 's/^......../\&lt;/g' $2
 else
+    sed -i 's/\&/\&ampi;/g' $1
     sed -i 's/</\&lt;/g' $1
     sed -i 's/>/\&gt;/g' $1
 fi
