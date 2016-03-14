@@ -1,7 +1,8 @@
 #!/bin/sh
 #
 # thumbnailer.sh - Thumbnailer, Watermarker, HTML generator, uploader.
-# Written by Samuel Bierwagen
+#
+# Copyright 2012 Samuel Bierwagen <bbot@bbot.org>
 #
 # Takes an image file, renames it to whatever you tell it to, produces two watermarked, resized copies (500 and 1200 pixels wide) and uploads them to a remote site using scp.
 # 
@@ -10,6 +11,10 @@
 # The watermarker is (in my ever so humble opinion) fairly clever. [Main watermark text] is appended at the bottom of the image in white text over a black bar, in 16-point text, like the ICHC family of sites. It doesn't cover up any part of the image, but instead adds it to the bottom.
 # Since this can fairly trivially be snipped off, it also prints [small watermark text] in 9-point 50% gray text, 200 pixels right and 240 pixels up from the center of the image.
 # This isn't a very high-security watermarker, since I don't hate my users. You can increase the obviousness of the watermarks, if you wish.
+#
+# It also strips EXIF metadata from the image, including EXIF GPS tags. If you want to preserve those, remove the "-strip" command flag from the "convert" commands.
+#
+# Resizing the raw image should wipe out single-pixel noise which allows image sensor fingerprnting. (http://www.ws.binghamton.edu/fridrich/Research/double.pdf)
 #
 # Arguments are of the form ./thumbnailer.sh SOURCEFILE.extension TARGETNAME
 # It's smart enough to read the extension off the source file, but not so smart as to notice if you put an extension on the target name. Don't put an extension on the target name.
